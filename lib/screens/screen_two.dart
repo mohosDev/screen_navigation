@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/screens/screen_three.dart';
+
+import '../screenroutes/routes.dart';
 
 class ScreenTwo extends StatelessWidget {
   const ScreenTwo({super.key});
+  static String routeName = "/ScreenTwo";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+      appBar: AppBar(),
       body: Center(
-        child:
-        Column(
+        child: Column(
           children: [
-            ElevatedButton(onPressed: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ScreenThree(),),);
-            }, child: Text("Push Replacement to Screen Three"),),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  ScreenRoutes.screenThree,
+                );
+              },
+              child: Text("Push Replacement to Screen Three"),
+            ),
           ],
         ),
       ),

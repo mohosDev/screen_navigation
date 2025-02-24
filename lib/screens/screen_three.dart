@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/screens/screen_four.dart';
+
+import '../screenroutes/routes.dart';
 
 class ScreenThree extends StatelessWidget {
   const ScreenThree({super.key});
+  static String routeName = "/ScreenThree";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+      appBar: AppBar(),
       body: Center(
-        child:
-        Column(
+        child: Column(
           children: [
-            ElevatedButton(onPressed: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => ScreenFour()), (route) => true);
-            }, child: Text("Push And Remove Until (True) to Screen Four"),),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  ScreenRoutes.screenFour,
+                  (route) => true,
+                );
+              },
+              child: Text("Push And Remove Until (True) to Screen Four"),
+            ),
           ],
         ),
       ),
